@@ -4,3 +4,4 @@
 ## Authors
 
 - Arielle Morris
+- Alex Bennett
