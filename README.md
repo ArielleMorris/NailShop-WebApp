@@ -5,3 +5,4 @@
 
 - Arielle Morris
 - Alex Bennett
+- Aiyana Johnson
