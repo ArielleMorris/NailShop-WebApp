@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
-    t.string "customer_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "appointment_id"
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
   create_table "managers", force: :cascade do |t|
     t.string "manager_firstname"
     t.string "manager_lastname"
-    t.string "manager_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
