@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'review', to: 'pages#review', as: 'review'
   post 'create', to: 'pages#create', as: 'create'
   get 'register', to: 'pages#register', as: 'register'
-  
+  get 'reschedule', to: 'pages#reschedule', as: 'reschedule'
+  patch 'reschedule', to: 'pages#update'
 end
