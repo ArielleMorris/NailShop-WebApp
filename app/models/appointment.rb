@@ -2,19 +2,17 @@
 #
 # Table name: appointments
 #
-#  id                  :bigint           not null, primary key
-#  cancellation        :boolean
-#  cancellation_reason :text
-#  client_mobile       :integer
-#  client_name         :string
-#  date_created        :datetime
-#  price_service       :decimal(, )
-#  promo_code          :decimal(, )
-#  service_name        :string
-#  technician_name     :string
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  technician_id       :bigint
+#  id               :bigint           not null, primary key
+#  client_firstname :string
+#  client_lastname  :string
+#  client_mobile    :integer
+#  date_created     :datetime
+#  price_service    :decimal(, )
+#  service_name     :string
+#  technician_name  :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  technician_id    :bigint
 #
 # Indexes
 #
@@ -34,12 +32,11 @@ class Appointment < ApplicationRecord
         dependent: :destroy
       )
 
-      has_one(
+      belongs_to(
         :customer,
         class_name: 'Customer',
         foreign_key: 'appointment_id',
         inverse_of: :appointments,
-        dependent: :destroy
       )
 
       has_one(
@@ -53,7 +50,8 @@ class Appointment < ApplicationRecord
           :check_in,
           class_name: 'CheckIn',
           foreign_key: 'appointment_id',
-          invsere_of: :appointment
+          invsere_of: :appointment,
+          dependent: :destroy
       )
 
       has_many(
@@ -67,7 +65,8 @@ class Appointment < ApplicationRecord
           :services_booked,
           class_name: 'ServicesBooked',
           foreign_key: 'appointment_id',
-          inverse_of: :appointment
+          inverse_of: :appointment,
+          dependent: :destroy
       )
     
       validates :date_created, presence: true

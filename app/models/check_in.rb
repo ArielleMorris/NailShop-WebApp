@@ -2,13 +2,14 @@
 #
 # Table name: check_ins
 #
-#  id             :bigint           not null, primary key
-#  client_mobile  :string
-#  client_name    :string
-#  service_code   :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  appointment_id :bigint
+#  id               :bigint           not null, primary key
+#  client_firstname :string
+#  client_lastname  :string
+#  client_mobile    :string
+#  service_code     :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  appointment_id   :bigint
 #
 # Indexes
 #
