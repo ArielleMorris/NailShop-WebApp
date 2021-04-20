@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'promotions', to: 'pages#promotions', as: 'promotions'
   get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
   get 'review', to: 'pages#review', as: 'review'
+  post 'create', to: 'pages#create', as: 'create'
+  get 'register', to: 'pages#register', as: 'register'
+  
 
   
 end

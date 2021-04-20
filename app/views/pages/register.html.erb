@@ -1,0 +1,21 @@
+<form>
+  <div class="container">
+    <h1>Create an Account</h1>
+    <hr>
+
+    <%= bootstrap_form_with model: @pages, url: welcome_path, method: :post, local: true do |f| %>
+
+        <%= f.text_field :fname %>
+        <%= f.text_field :lname %>
+        <%= f.text_field :email %>
+        <%= f.text_field :pass %>
+        <%= f.text_field :repass %>
+        <%= f.text_field :pnum %>
+        <%= f.submit %>
+
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+
+
+</form>
