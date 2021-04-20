@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: schedules
+#
+#  id            :bigint           not null, primary key
+#  days_working  :date
+#  from          :datetime
+#  to            :datetime
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  technician_id :bigint
+#
+# Indexes
+#
+#  index_schedules_on_technician_id  (technician_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (technician_id => technicians.id)
+#
+
+one:
+  from: 2021-04-19 16:40:30
+  to: 2021-04-19 16:40:30
+  days_working: 2021-04-19
+
+two:
+  from: 2021-04-19 16:40:30
+  to: 2021-04-19 16:40:30
+  days_working: 2021-04-19
