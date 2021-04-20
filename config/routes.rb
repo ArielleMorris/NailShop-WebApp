@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'customers', to: 'pages#customers', as: 'customers'
   get 'promotions', to: 'pages#promotions', as: 'promotions'
   get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
-  
+  get 'show', to: 'pages#show', as: 'show'
 end
