@@ -8,7 +8,5 @@ class PagesController < ApplicationController
         render:customers
     end
 
-    def promotions
-        render:promotions
-    end
+
 end

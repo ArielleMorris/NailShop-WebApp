@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   get 'welcome', to: 'pages#welcome', as: 'welcome'
   get 'customers', to: 'pages#customers', as: 'customers'
-  get 'promotions', to: 'pages#promotions', as: 'promotions'
+  get 'promotions', to: 'promotions#promotions', as: 'promotions'
 end
