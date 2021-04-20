@@ -6,3 +6,4 @@
 - Arielle Morris
 - Alex Bennett
 - Aiyana Johnson
+- Ananya Dirghangi
