@@ -10,15 +10,21 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link px-2" href="#">Home <span class="sr-only">(current)</span></a>
+      <%= link_to 'Home', welcome_path, class: 'nav-link px-2' %>
+      </li>
+      <%= link_to 'Services', welcome_path,  class: 'nav-link px-2' %>
+      </li>
+      <%= link_to 'Promotions', welcome_path, class: 'nav-link px-2' %>
+      </li>
+      <%= link_to 'Promotions', welcome_path, class: 'nav-link px-2' %>
       </li>
     </ul>
     <span class="navbar-item px-2" >
-    <a class="nav-link" href="#">Sign up</a>
+    <%= link_to 'Sign up', welcome_path, class: 'nav-link' %>
     </span>
 
     <span class="navbar-item px-2">
-    <a class="nav-link" href="#">Sign In</a>
+    <%= link_to 'Sign up',welcome_path, class: 'nav-link' %>
     </span>
   </div>
 
