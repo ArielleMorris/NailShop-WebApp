@@ -11,4 +11,10 @@ class PagesController < ApplicationController
     def promotions
         render:promotions
     end
+
+    def review
+        render:review
+    end
+
+
 end
