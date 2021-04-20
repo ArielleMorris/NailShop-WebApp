@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: redirect('/welcome')
 
   get 'welcome', to: 'pages#welcome', as: 'welcome'
+  get 'customers', to: 'pages#customers', as: 'customers'
+  get 'promotions', to: 'pages#promotions', as: 'promotions'
 end
