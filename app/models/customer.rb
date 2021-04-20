@@ -3,7 +3,6 @@
 # Table name: customers
 #
 #  id             :bigint           not null, primary key
-#  customer_email :string
 #  first_name     :string
 #  last_name      :string
 #  phone_number   :integer
@@ -26,14 +25,13 @@ class Customer < ApplicationRecord
 
     has_one(
       :user,
-      inverse_of: :customer
     )
 
     belongs_to(
         :manager,
         class_name: 'Manager',
         foreign_key: 'manager_id',
-        inverse_of: :manager
+        inverse_of: :customers
       )
 
       has_many(

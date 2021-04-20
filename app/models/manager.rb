@@ -3,7 +3,6 @@
 # Table name: managers
 #
 #  id                :bigint           not null, primary key
-#  manager_email     :string
 #  manager_firstname :string
 #  manager_lastname  :string
 #  created_at        :datetime         not null
@@ -13,7 +12,6 @@ class Manager < ApplicationRecord
 
     has_one(
       :user,
-      inverse_of: :manager
     )
 
     has_many(

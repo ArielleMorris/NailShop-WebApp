@@ -17,14 +17,12 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date_created"
-    t.string "client_name"
+    t.string "client_firstname"
+    t.string "client_lastname"
     t.integer "client_mobile"
     t.decimal "price_service"
     t.string "service_name"
     t.string "technician_name"
-    t.decimal "promo_code"
-    t.boolean "cancellation"
-    t.text "cancellation_reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "technician_id"
@@ -32,7 +30,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
   end
 
   create_table "check_ins", force: :cascade do |t|
-    t.string "client_name"
+    t.string "client_firstname"
+    t.string "client_lastname"
     t.string "client_mobile"
     t.integer "service_code"
     t.datetime "created_at", precision: 6, null: false
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
-    t.string "customer_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "appointment_id"
@@ -57,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
   create_table "managers", force: :cascade do |t|
     t.string "manager_firstname"
     t.string "manager_lastname"
-    t.string "manager_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
