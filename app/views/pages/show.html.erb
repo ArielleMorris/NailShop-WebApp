@@ -1,0 +1,35 @@
+<h1>Admin: </h1>
+<div style="padding:20px;">
+<h2>Customer Reports</h2>
+
+
+<style type="text/css">
+ .nobull {
+  list-style-type: none;
+ }
+</style>
+<ul class="nobull">
+      <li>Name </li>
+
+      <li>Phone Number:</li>
+      <li>Email Address:</li>
+      <li>Total Appointments:</li>
+      <li>Reviews:</li>
+  </ul>
+  
+<div style="padding:20px;">
+<p>
+<h4>Appointments</h4>  
+    <select><option>Month</option>
+    </select>
+</p>
+
+<p>
+    <h4>Review Calender</h4>
+        <select><option>Month</option>
+        </select>
+</p>
+
+<p>
+    <%= link_to 'View Customer List', customers_path %>
+</p>
