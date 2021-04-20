@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-    def welcome
+    def Welcome
         render:welcome
     end
 
