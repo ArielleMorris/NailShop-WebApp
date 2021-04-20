@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-5" style="background-color: #e3f2fd;">
 <%= image_tag 'nail_logo@2x.png' %>
-  <a class="navbar-brand" href="#">HUY NAILS</a>
+  <%= link_to 'HUY NAILS', welcome_path,  class: 'navbar-brand' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,13 +14,13 @@
       </li>
       <%= link_to 'Services', welcome_path,  class: 'nav-link px-2' %>
       </li>
-      <%= link_to 'Promotions', welcome_path, class: 'nav-link px-2' %>
+      <%= link_to 'Promotions', promotions_path, class: 'nav-link px-2' %>
       </li>
-      <%= link_to 'Promotions', welcome_path, class: 'nav-link px-2' %>
+      <%= link_to 'Reviews', welcome_path, class: 'nav-link px-2' %>
       </li>
     </ul>
     <span class="navbar-item px-2" >
-    <%= link_to 'Sign up', welcome_path, class: 'nav-link' %>
+    <%= link_to 'Sign in', welcome_path, class: 'nav-link' %>
     </span>
 
     <span class="navbar-item px-2">

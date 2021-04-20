@@ -1,5 +1,5 @@
 
-<div style="padding:20px;">
+<div style="padding:15px;">
 <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -41,18 +41,28 @@
                                         </select>
                                     </div>
                                 </div>
-                                <!-- Select Basic -->
+                                <!-- Select Service -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">Appointment For</label>
                                         <select id="appointmentfor" name="appointmentfor" class="form-control">
                                             <option value="Service#1">Service#1</option>
                                             <option value="Service#2">Service#2</option>
-                                            <option value="Service#3">Service#3</option>
-                                            <option value="Service#4">Service#4</option>
                                         </select>
                                     </div>
                                 </div>
+
+                                <!-- Select Technician -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">Select Technician</label>
+                                        <select id="appointmentfor" name="appointmentfor" class="form-control">
+                                            <option value="Service#1">Technician#1</option>
+                                            <option value="Service#2">Technician#2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <!-- Button -->
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -62,5 +72,11 @@
                             </div>
                         </form>
 </div>
+
+<p> do not click apply code pls - routi </p>
+<%= form_with url: "/search", method: :get do |form| %>
+    <%= form.text_field :query %>
+    <%= form.submit "Apply code" %>
+  <% end %>
 
 
