@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get 'welcome', to: 'pages#welcome', as: 'welcome'
   get 'customers', to: 'pages#customers', as: 'customers'
-  get 'promotions', to: 'pages#promotions', as: 'promotions'
+
+  get 'promotions', to: 'promotions#promotions', as: 'promotions'
   get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
 
   get 'show', to: 'pages#show', as: 'show'
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   get 'register', to: 'pages#register', as: 'register'
   get 'reschedule', to: 'pages#reschedule', as: 'reschedule'
   patch 'reschedule', to: 'pages#update'
+
 end
