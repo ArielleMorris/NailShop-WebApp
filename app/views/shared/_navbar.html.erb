@@ -1,5 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+<%= image_tag 'nail_logo@2x.png' %>
 <a class="navbar-brand" href="#">HUYNAILS</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -10,11 +11,9 @@
     <li class="nav-item <%= active_class(welcome_path) %>">
     <%= link_to 'Home', welcome_path, class: 'nav-link px-2' %>
     </li>
-    <%= link_to 'Services', welcome_path,  class: 'nav-link px-2' %>
-    </li>
     <%= link_to 'Promotions', promotions_path, class: 'nav-link px-2' %>
     </li>
-    <%= link_to 'Reviews', welcome_path, class: 'nav-link px-2' %>
+    <%= link_to 'Reviews', review_path, class: 'nav-link px-2' %>
     </li>
     </li>
   </ul>
