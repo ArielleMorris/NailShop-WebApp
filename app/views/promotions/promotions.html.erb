@@ -1,29 +1,6 @@
 
 <h1>Promotions</h1>
 
-<table class="table table-hover">
-
-  <thead class="thead-dark">
-    <tr>
-      <th>Type of Discount</th>
-      <th>Description</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @promotions.each do |promotion| %>
-      <tr>
-        <td><%= link_to promotion.title, promotion_path(promotion) %></td>
-        <td><%= promotion.description %></td>
-      </tr>
-    <% end %>
-   </tbody>
-
-</table>
-
-
-
 <style>
 .button {
   color: white;
