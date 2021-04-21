@@ -8,18 +8,11 @@ class PagesController < ApplicationController
         render:customers
     end
 
-
-=======
-    def promotions
-        render:promotions
-    end
-
     def review
         render:review
     end
 
-    def register
-        
+    def register   
         render:register
     end
 
