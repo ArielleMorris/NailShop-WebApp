@@ -8,7 +8,7 @@ class PagesController < ApplicationController
         render:customers
     end
 
-    def register
+    def register   
         render:register
     end
 
