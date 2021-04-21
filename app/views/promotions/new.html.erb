@@ -1,0 +1,12 @@
+
+<h1>Create Promotion</h1>
+
+<%= bootstrap_form_with model: @promotion, url: promotions_path, method: :post, local: true do |f| %>
+
+    <%= f.text_field :Title %>
+    <%= f.text_field :Description %>
+    <%= f.text_field :Promo %>
+    <%= f.date_field :Expiration %>
+    <%= f.submit %>
+
+<% end %>

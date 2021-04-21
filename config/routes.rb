@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get 'customers', to: 'pages#customers', as: 'customers'
 
   get 'promotions', to: 'promotions#promotions', as: 'promotions'
-  get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
+  get 'promotions/new', to: 'promotions#new', as: 'newpromotion'
+  post 'promotions', to: 'promotions#create'
+  get 'promotions/:id/edit', to: 'promotions#edit', as: 'edittodo'
+  patch 'promotions/:id', to: 'promotions#update'
 
+  get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
   get 'show', to: 'pages#show', as: 'show'
   get 'login', to: 'pages#login', as: 'login'
   get 'review', to: 'pages#review', as: 'review'

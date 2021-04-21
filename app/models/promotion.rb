@@ -20,7 +20,7 @@
 #  fk_rails_...  (service_id => services.id)
 #
 class Promotion < ApplicationRecord
-    
+
       belongs_to(
         :service,
         class_name: 'Service',
