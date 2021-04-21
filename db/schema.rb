@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.string "technician_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "customer_id"
     t.bigint "technician_id"
+    t.index ["customer_id"], name: "index_appointments_on_customer_id"
     t.index ["technician_id"], name: "index_appointments_on_technician_id"
   end
 
@@ -46,9 +48,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.integer "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "appointment_id"
     t.bigint "manager_id"
-    t.index ["appointment_id"], name: "index_customers_on_appointment_id"
     t.index ["manager_id"], name: "index_customers_on_manager_id"
   end
 
@@ -128,9 +128,9 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "customers"
   add_foreign_key "appointments", "technicians"
   add_foreign_key "check_ins", "appointments"
-  add_foreign_key "customers", "appointments"
   add_foreign_key "customers", "managers"
   add_foreign_key "promotions", "services"
   add_foreign_key "reviews", "appointments"

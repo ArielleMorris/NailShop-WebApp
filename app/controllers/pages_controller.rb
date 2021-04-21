@@ -8,18 +8,7 @@ class PagesController < ApplicationController
         render:customers
     end
 
-
-=======
-    def promotions
-        render:promotions
-    end
-
-    def review
-        render:review
-    end
-
     def register
-        
         render:register
     end
 
@@ -33,3 +22,4 @@ class PagesController < ApplicationController
                 render :register
         end
     end
+end

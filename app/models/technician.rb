@@ -21,10 +21,11 @@ class Technician < ApplicationRecord
         :appointment,
         class_name: 'Appointment',
         foreign_key: 'appointment_id',
-        inverse_of: :technician
+        inverse_of: :technician,
+        optional: true
       )
     
-      validates :title, presence: true
+    
     
       validates :tech_name, presence: true
 end
