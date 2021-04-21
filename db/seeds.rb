@@ -95,18 +95,10 @@
     )
 
 #Schedule seed
-<<<<<<< HEAD
     schedule1 = Schedule.create!(
         days_working: 2.wday,
         from: DateTime.new(2021,4,20,10),
         to: DateTime.new(2021,4,17),
         technician: technician1
     )
-=======
-  #  schedule1 = Schedule.create!(
-   #     days_working:
-   #     from: 
-   #     to:
-   #     technician: technician1
-   # )=======
->>>>>>> 833f35755b3b3813f2e429006cb53427f95cc581
+
