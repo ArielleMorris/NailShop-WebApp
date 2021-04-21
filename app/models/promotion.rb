@@ -20,12 +20,12 @@
 #  fk_rails_...  (service_id => services.id)
 #
 class Promotion < ApplicationRecord
-    
+
       belongs_to(
         :service,
         class_name: 'Service',
         foreign_key: 'service_id',
-        inverse_of: :promotions
+        
       )
     
       validates :promo_code, presence: true
