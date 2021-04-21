@@ -26,3 +26,4 @@ class PagesController < ApplicationController
                 render :register
         end
     end
+end
