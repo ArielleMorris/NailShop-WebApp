@@ -22,10 +22,12 @@ class User < ApplicationRecord
 
   belongs_to(
     :manager,
+    optional: true
   )
 
   belongs_to(
     :customer,
+    optional: true
   )
 
   devise :database_authenticatable, :registerable,

@@ -8,12 +8,12 @@
 
 #Test user seeds
     user1 = User.create!(
-        email: "cust1@coolmail.com",
+        email: "cust1@email.com",
         password: "password"
     )
 
     user2 = User.create!(
-        email: "manager1@coolmail.com",
+        email: "manager1@email.com",
         password: "password"
     )
 
@@ -22,26 +22,26 @@
     manager1 = Manager.create!(
         manager_firstname: 'Monique',
         manager_lastname: 'DeLite',
-        email: "dessie@coolmail.com",
-        password: "password"
+        #email: "dessie@coolmail.com",
+        #password: "password"
     )
 
 #Customer seeds
     customer1 = Customer.create!(
         first_name: 'Roxxy',
         last_name: 'Sapphire',
-        email: "roxxy@coolmail.com",
-        password: "password",
-        phone_number: "3448729050"
+        #email: "roxxy@coolmail.com",
+        #password: "password",
+        phone_number: "111111111",
         manager: manager1
     )
 
     customer2 = Customer.create!(
         first_name: 'Justin',
         last_name: 'Thyme',
-        email: "justin@coolmail.com",
-        password: "password",
-        phone_number: "3449892212"
+        #email: "justin@coolmail.com",
+        #password: "password",
+        phone_number: "111111112",
         manager: manager1
     )
 
@@ -58,31 +58,37 @@
         duration: '40'
     )
 
-#Review seed
-    review1 = Review.create!(
-        rating_num: '4',
-        ratings_desc: "I was satisfied with my appointment!",
-        service_code: '99988877',
-        service_name: 'Manicure'
-        appointment: appointment1
-
-    )
 
 #Technician seed
     technician1 = Technician.create!(
         tech_name: "Naila Stiles",
     )
 
+
+
+
 #Appointment seed
     appointment1 = Appointment.create!(
-         client_firstname: customer1.customer.first_name,
-         client_lastname: customer1.customer.last_name,
-         client_mobile: customer1.customer.phone_number,
+         client_firstname: customer1.first_name,
+         client_lastname: customer1.last_name,
+         client_mobile: customer1.phone_number,
          date_created: DateTime.new(2021,3,5,9),
          price_service: service1.price,
          service_name: service1.service_name,
          technician_name: technician1.tech_name,
-         client: customer1       
+         customer: customer1       
+    )
+
+
+
+    #Review seed
+    review1 = Review.create!(
+        rating_num: '4',
+        ratings_desc: "I was satisfied with my appointment!",
+        service_code: '99988877',
+        service_name: 'Manicure',
+        appointment: appointment1
+
     )
 
 #Promotion seed
@@ -91,14 +97,14 @@
         discount_percent: "10.00",
         promo_code: "112233AA",
         service_type: service1.service_name,
-        appointment: appointment1
+        service: service1
     )
 
-#Schedule seed
-    schedule1 = Schedule.create!(
-        days_working: 2.wday,
-        from: DateTime.new(2021,4,20,10),
-        to: DateTime.new(2021,4,17),
-        technician: technician1
-    )
+# #Schedule seed
+#     schedule1 = Schedule.create!(
+#         days_working: 2.day,
+#         from: DateTime.noon,
+#         to: DateTime.midnight,
+#         technician: technician1
+#     )
 

@@ -12,14 +12,17 @@
 #  technician_name  :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  customer_id      :bigint
 #  technician_id    :bigint
 #
 # Indexes
 #
+#  index_appointments_on_customer_id    (customer_id)
 #  index_appointments_on_technician_id  (technician_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (customer_id => customers.id)
 #  fk_rails_...  (technician_id => technicians.id)
 #
 class Appointment < ApplicationRecord
@@ -35,7 +38,7 @@ class Appointment < ApplicationRecord
       belongs_to(
         :customer,
         class_name: 'Customer',
-        foreign_key: 'appointment_id',
+        foreign_key: 'customer_id',
         inverse_of: :appointments,
       )
 
@@ -50,7 +53,7 @@ class Appointment < ApplicationRecord
           :check_in,
           class_name: 'CheckIn',
           foreign_key: 'appointment_id',
-          invsere_of: :appointment,
+          inverse_of: :appointment,
           dependent: :destroy
       )
 

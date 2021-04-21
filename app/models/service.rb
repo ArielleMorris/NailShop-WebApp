@@ -24,7 +24,16 @@ class Service < ApplicationRecord
         :appointment,
         class_name: 'Appointment',
         foreign_key: 'appointment_id',
+        inverse_of: :service,
+        optional: true
+      )
+
+      has_one(
+        :promotion,
+        class_name: 'Promotion',
+        foreign_key: 'service_id',
         inverse_of: :service
+
       )
     
       validates :price, presence: true
