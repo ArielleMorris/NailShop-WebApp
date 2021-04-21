@@ -8,10 +8,6 @@ class PagesController < ApplicationController
         render:customers
     end
 
-    def review
-        render:review
-    end
-
     def register   
         render:register
     end

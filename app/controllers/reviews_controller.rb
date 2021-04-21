@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
 
+  def review
+    render:review
+  end
+  
     def create
         @review = review.build(params.require(:review).permit(:rating_num, :ratings_desc, :service_name, :service_code))
         if @review.save

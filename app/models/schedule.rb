@@ -24,7 +24,7 @@ class Schedule < ApplicationRecord
         :technician,
         class_name: 'Technician',
         foreign_key: 'technician_id',
-        inverse_of: :schedules
+        inverse_of: :schedule
       )
     
       validates :days_working, presence: true

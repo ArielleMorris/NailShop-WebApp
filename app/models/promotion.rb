@@ -25,7 +25,7 @@ class Promotion < ApplicationRecord
         :service,
         class_name: 'Service',
         foreign_key: 'service_id',
-        inverse_of: :promotions
+        inverse_of: :promotion
       )
     
       validates :promo_code, presence: true
