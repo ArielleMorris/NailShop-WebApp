@@ -5,18 +5,9 @@
 #  id           :bigint           not null, primary key
 #  first_name   :string
 #  last_name    :string
-#  phone_number :integer
+#  phone_number :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  manager_id   :bigint
-#
-# Indexes
-#
-#  index_customers_on_manager_id  (manager_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (manager_id => managers.id)
 #
 
 one:

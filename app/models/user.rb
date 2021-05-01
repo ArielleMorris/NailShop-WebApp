@@ -5,6 +5,9 @@
 #  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string
+#  last_name              :string
+#  phone_number           :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -20,15 +23,14 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  belongs_to(
-    :manager,
-    optional: true
+  has_many(
+    :appointments,
+    class_name: 'Appointment',
+    foreign_key: 'user_id',
+    inverse_of: :user
   )
 
-  belongs_to(
-    :customer,
-    optional: true
-  )
+  validates :phone_number, :phone_number => {:ten_digits => true, :message => "Not a valid phone number."}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
