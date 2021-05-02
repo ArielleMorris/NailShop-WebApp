@@ -10,21 +10,21 @@
 #
 class Manager < ApplicationRecord
 
-    has_one(
-      :user,
-    )
+    # has_one(
+    #   :user,
+    # )
 
-    has_many(
-        :customers,
-        class_name: 'Customer',
-        foreign_key: 'manager_id',
-        inverse_of: :manager,
-        dependent: :destroy
-      )
+    # has_many(
+    #     :customers,
+    #     class_name: 'Customer',
+    #     foreign_key: 'manager_id',
+    #     inverse_of: :manager,
+    #     dependent: :destroy
+    #   )
     
       validates :manager_firstname, presence: true
       validates :manager_lastname, presence: true
 
-      accepts_nested_attributes_for :user
+    #   accepts_nested_attributes_for :user
     
 end

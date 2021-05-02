@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_023703) do
+ActiveRecord::Schema.define(version: 2021_05_01_200703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,16 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.datetime "date_created"
     t.string "client_firstname"
     t.string "client_lastname"
-    t.integer "client_mobile"
+    t.string "client_mobile"
     t.decimal "price_service"
     t.string "service_name"
     t.string "technician_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "customer_id"
     t.bigint "technician_id"
-    t.index ["customer_id"], name: "index_appointments_on_customer_id"
+    t.bigint "user_id"
     t.index ["technician_id"], name: "index_appointments_on_technician_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "check_ins", force: :cascade do |t|
@@ -45,11 +45,9 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "manager_id"
-    t.index ["manager_id"], name: "index_customers_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -124,14 +122,16 @@ ActiveRecord::Schema.define(version: 2021_04_20_023703) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "appointments", "customers"
   add_foreign_key "appointments", "technicians"
+  add_foreign_key "appointments", "users"
   add_foreign_key "check_ins", "appointments"
-  add_foreign_key "customers", "managers"
   add_foreign_key "promotions", "services"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "schedules", "technicians"

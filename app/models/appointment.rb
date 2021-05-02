@@ -5,25 +5,25 @@
 #  id               :bigint           not null, primary key
 #  client_firstname :string
 #  client_lastname  :string
-#  client_mobile    :integer
+#  client_mobile    :string
 #  date_created     :datetime
 #  price_service    :decimal(, )
 #  service_name     :string
 #  technician_name  :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  customer_id      :bigint
 #  technician_id    :bigint
+#  user_id          :bigint
 #
 # Indexes
 #
-#  index_appointments_on_customer_id    (customer_id)
 #  index_appointments_on_technician_id  (technician_id)
+#  index_appointments_on_user_id        (user_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (customer_id => customers.id)
 #  fk_rails_...  (technician_id => technicians.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Appointment < ApplicationRecord
 
@@ -35,11 +35,18 @@ class Appointment < ApplicationRecord
         dependent: :destroy
       )
 
+      # belongs_to(
+      #   :customer,
+      #   class_name: 'Customer',
+      #   foreign_key: 'customer_id',
+      #   inverse_of: :appointments,
+      # )
+
       belongs_to(
-        :customer,
-        class_name: 'Customer',
-        foreign_key: 'customer_id',
-        inverse_of: :appointments,
+        :user,
+        class_name: 'User',
+        foreign_key: 'user_id',
+        inverse_of: :appointments
       )
 
       has_one(

@@ -6,44 +6,51 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Test user seeds
+#Test user seeds - Manager account not implemented yet.
     user1 = User.create!(
+        first_name: 'Roxxy',
+        last_name: 'Stone',
+        phone_number: '9015052020',
         email: "cust1@email.com",
         password: "password"
     )
 
     user2 = User.create!(
-        email: "manager1@email.com",
+        first_name: 'Justin',
+        last_name: 'Thyme',
+        phone_number: '9012928878',
+        email: "cust2@email.com",
         password: "password"
     )
 
+# !! OLD CODE !! Only uncomment if you absolutely need to test with this data. Be aware that
+#                some relations tied to customers and managers no longer work.
+# #Manager seed
+#     manager1 = Manager.create!(
+#         manager_firstname: 'Monique',
+#         manager_lastname: 'DeLite',
+#         #email: "dessie@coolmail.com",
+#         #password: "password"
+#     )
 
-#Manager seed
-    manager1 = Manager.create!(
-        manager_firstname: 'Monique',
-        manager_lastname: 'DeLite',
-        #email: "dessie@coolmail.com",
-        #password: "password"
-    )
+# #Customer seeds
+#     customer1 = Customer.create!(
+#         first_name: 'Roxxy',
+#         last_name: 'Sapphire',
+#         #email: "roxxy@coolmail.com",
+#         #password: "password",
+#         phone_number: "111111111",
+#         manager: manager1
+#     )
 
-#Customer seeds
-    customer1 = Customer.create!(
-        first_name: 'Roxxy',
-        last_name: 'Sapphire',
-        #email: "roxxy@coolmail.com",
-        #password: "password",
-        phone_number: "111111111",
-        manager: manager1
-    )
-
-    customer2 = Customer.create!(
-        first_name: 'Justin',
-        last_name: 'Thyme',
-        #email: "justin@coolmail.com",
-        #password: "password",
-        phone_number: "111111112",
-        manager: manager1
-    )
+# customer2 = Customer.create!(
+#     first_name: 'Justin',
+#     last_name: 'Thyme',
+#     #email: "justin@coolmail.com",
+#     #password: "password",
+#     phone_number: "111111112",
+#     manager: manager1
+# )
 
 #Service seeds
     service1 = Service.create!(
@@ -64,19 +71,16 @@
         tech_name: "Naila Stiles",
     )
 
-
-
-
 #Appointment seed
     appointment1 = Appointment.create!(
-         client_firstname: customer1.first_name,
-         client_lastname: customer1.last_name,
-         client_mobile: customer1.phone_number,
+         client_firstname: user1.first_name,
+         client_lastname: user1.last_name,
+         client_mobile: user1.phone_number,
          date_created: DateTime.new(2021,3,5,9),
          price_service: service1.price,
          service_name: service1.service_name,
          technician_name: technician1.tech_name,
-         customer: customer1       
+         user: user1       
     )
 
 
