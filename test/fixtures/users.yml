@@ -3,10 +3,12 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  customer_role          :boolean          default(TRUE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
 #  last_name              :string
+#  manager_role           :boolean          default(FALSE)
 #  phone_number           :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
