@@ -1,15 +1,20 @@
 class PagesController < ApplicationController
 
-    def Welcome
-        render:welcome
+    def welcome
+        if current_user 
+            @current_appointment = current_user.appointments.last
+        else
+            @current_appointment = nil
+        end
+        render :welcome
     end
 
     def customers
-        render:customers
+        render :customers
     end
 
     def register   
-        render:register
+        render :register
     end
 
     def create
