@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'promotions/:id/edit', to: 'promotions#edit', as: 'edittodo'
   patch 'promotions/:id', to: 'promotions#update'
 
-  get 'bookappt', to: 'pages#bookappt', as: 'bookappt'
+  get 'appointments', to: 'appointments#new', as: 'appointments'
+  post 'appointments', to: 'appointments#create'
+
   get 'show', to: 'pages#show', as: 'show'
   get 'login', to: 'pages#login', as: 'login'
   get 'review', to: 'pages#review', as: 'review'

@@ -1,0 +1,26 @@
+<div style="padding:15px;">
+<div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well-block">
+                        <div class="well-title">
+                            <h2>Book an Appointment</h2>
+                        </div>
+      
+
+
+
+<%= bootstrap_form_with model: @appointment, url: appointments_path, method: :post, local: true do |f| %>
+    <%= f.text_field :client_firstname %>
+    <%= f.text_field :client_lastname  %>
+    <%= f.telephone_field :client_mobile %>
+    <%= f.datetime_field :date_created %>
+    <%= f.select :technician_name, ["Naila Stiles"] %>
+
+    <%= f.submit %>
+
+<% end %>
+
+
+
+

@@ -80,4 +80,5 @@ class Appointment < ApplicationRecord
       )
     
       validates :date_created, presence: true
+      validates :client_mobile, :phone_number => {:ten_digits => true, :message => "Not a valid phone number. It must be ten digits."}
 end
