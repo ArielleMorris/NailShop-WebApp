@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_200703) do
+ActiveRecord::Schema.define(version: 2021_05_04_203613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date_created"
@@ -40,21 +45,6 @@ ActiveRecord::Schema.define(version: 2021_05_01_200703) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "appointment_id"
     t.index ["appointment_id"], name: "index_check_ins_on_appointment_id"
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "managers", force: :cascade do |t|
-    t.string "manager_firstname"
-    t.string "manager_lastname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -125,6 +115,8 @@ ActiveRecord::Schema.define(version: 2021_05_01_200703) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
+    t.boolean "customer_role", default: true
+    t.boolean "manager_role", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

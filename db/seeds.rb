@@ -12,7 +12,9 @@
         last_name: 'Stone',
         phone_number: '9015052020',
         email: "cust1@email.com",
-        password: "password"
+        password: "password",
+        customer_role: true,
+        manager_role: false
     )
 
     user2 = User.create!(
@@ -20,37 +22,20 @@
         last_name: 'Thyme',
         phone_number: '9012928878',
         email: "cust2@email.com",
-        password: "password"
+        password: "password",
+        customer_role: true,
+        manager_role: false
     )
 
-# !! OLD CODE !! Only uncomment if you absolutely need to test with this data. Be aware that
-#                some relations tied to customers and managers no longer work.
-# #Manager seed
-#     manager1 = Manager.create!(
-#         manager_firstname: 'Monique',
-#         manager_lastname: 'DeLite',
-#         #email: "dessie@coolmail.com",
-#         #password: "password"
-#     )
-
-# #Customer seeds
-#     customer1 = Customer.create!(
-#         first_name: 'Roxxy',
-#         last_name: 'Sapphire',
-#         #email: "roxxy@coolmail.com",
-#         #password: "password",
-#         phone_number: "111111111",
-#         manager: manager1
-#     )
-
-# customer2 = Customer.create!(
-#     first_name: 'Justin',
-#     last_name: 'Thyme',
-#     #email: "justin@coolmail.com",
-#     #password: "password",
-#     phone_number: "111111112",
-#     manager: manager1
-# )
+    manager = User.create!(
+        first_name: 'Mallori',
+        last_name: 'DeLite',
+        phone_number: '9013334444',
+        email: "manager@email.com",
+        password: "password",
+        customer_role: false,
+        manager_role: true
+    )
 
 #Service seeds
     service1 = Service.create!(
@@ -66,12 +51,20 @@
     )
 
 
-#Technician seed
+#Technician seeds
     technician1 = Technician.create!(
-        tech_name: "Naila Stiles",
+        tech_name: "Naila Stiles"
     )
 
-#Appointment seed
+    technician2 = Technician.create!(
+        tech_name: "Jules Jones"
+    )
+
+    technician3 = Technician.create!(
+        tech_name: "Kailen Rhodes"
+    )
+
+#Appointment seeds
     appointment1 = Appointment.create!(
          client_firstname: user1.first_name,
          client_lastname: user1.last_name,
@@ -83,7 +76,16 @@
          user: user1       
     )
 
-
+    appointment2 = Appointment.create!(
+        client_firstname: user2.first_name,
+        client_lastname: user2.last_name,
+        client_mobile: user2.phone_number,
+        date_created: DateTime.new(2021,4,4,10),
+        price_service: service2.price,
+        service_name: service2.service_name,
+        technician_name: technician2.tech_name,
+        user: user2       
+   )
 
     #Review seed
     review1 = Review.create!(
@@ -92,7 +94,15 @@
         service_code: '99988877',
         service_name: 'Manicure',
         appointment: appointment1
+    )
 
+    #Review seed
+    review2 = Review.create!(
+        rating_num: '5',
+        ratings_desc: "WOW!!! My nails have never looked this good.",
+        service_code: '99988877',
+        service_name: 'Pedicure',
+        appointment: appointment2
     )
 
 #Promotion seed
