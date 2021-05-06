@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h1>Reschedule</h1>
+ 
+        <%= bootstrap_form_with model: @appointment, method: :patch, url: appointment_path(@appointment),local: true do |f| %>
+
+        <%= f.text_field :client_firstname %>
+        <%= f.text_field :client_lastname  %>   
+    
+        <%= f.datetime_field :date_created %>
+        <%= f.select :technician_name, ["Naila Stiles"] %>
+       <%= f.telephone_field :client_mobile %>
+
+        <div class="form-group">
+            <label class="control-label" for="promotions">Select Promotion</label>
+            <select id="promotions" name="promotions" class="form-control">
+                <option value="Promotion1">Buy 2 Get 1 Free</option>
+                <option value="Promotion2">30% off Next Visit</option>
+                <option value="Promotion3">20% off Pedicure with Guest</option>
+            </select>
+        </div>
+        <%= f.submit %>
+
+
+    
+</div>
+<%end%>
