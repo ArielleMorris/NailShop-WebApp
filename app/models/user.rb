@@ -3,10 +3,12 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  customer_role          :boolean          default(TRUE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  first_name             :string
 #  last_name              :string
+#  manager_role           :boolean          default(FALSE)
 #  phone_number           :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -30,7 +32,7 @@ class User < ApplicationRecord
     inverse_of: :user
   )
 
-  validates :phone_number, :phone_number => {:ten_digits => true, :message => "Not a valid phone number."}
+  validates :phone_number, :phone_number => {:ten_digits => true, :message => "Not a valid phone number. It must be ten digits."}
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

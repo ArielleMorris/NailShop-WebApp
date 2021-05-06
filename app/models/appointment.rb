@@ -35,13 +35,6 @@ class Appointment < ApplicationRecord
         dependent: :destroy
       )
 
-      # belongs_to(
-      #   :customer,
-      #   class_name: 'Customer',
-      #   foreign_key: 'customer_id',
-      #   inverse_of: :appointments,
-      # )
-
       belongs_to(
         :user,
         class_name: 'User',
