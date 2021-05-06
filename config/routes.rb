@@ -15,13 +15,14 @@ Rails.application.routes.draw do
 
   get 'appointments', to: 'appointments#new', as: 'appointments'
   post 'appointments', to: 'appointments#create'
+  get 'appointments/:id/edit', to: 'appointments#edit', as: 'edit_appointment'
+  patch 'appointments/:id', to: 'appointments#update', as: 'appointment'
+
 
   get 'show', to: 'pages#show', as: 'show'
-  get 'login', to: 'pages#login', as: 'login'
   get 'review', to: 'pages#review', as: 'review'
   post 'create', to: 'pages#create', as: 'create'
   get 'register', to: 'pages#register', as: 'register'
-  get 'reschedule', to: 'pages#reschedule', as: 'reschedule'
-  patch 'reschedule', to: 'pages#update'
+  
 
 end
