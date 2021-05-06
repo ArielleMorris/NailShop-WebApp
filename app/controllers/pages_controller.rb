@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
     def welcome
+        
         if current_user 
             @current_appointment = current_user.appointments.last
         else
