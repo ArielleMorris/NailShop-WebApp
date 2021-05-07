@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     def customers
         @customers = User.order(:id)
         if current_user.nil?
-            redirect_to users_url, :flash => {:error => "You do not have access to this page"}
+            redirect_to welcome_url, :flash => {:error => "You do not have access to this page"}
           elsif current_user.manager_role?
             render :customers
           else 
