@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get 'promotions', to: 'promotions#promotions', as: 'promotions'
   get 'promotions/new', to: 'promotions#new', as: 'newpromotion'
   post 'promotions', to: 'promotions#create'
-  get 'promotions/:id/edit', to: 'promotions#edit', as: 'edittodo'
+  get 'promotions/:id/edit', to: 'promotions#edit', as: 'editprom'
   patch 'promotions/:id', to: 'promotions#update'
+  delete 'promotions/:id', to: 'promotions#destroy'
 
   get 'appointments', to: 'appointments#new', as: 'appointments'
   post 'appointments', to: 'appointments#create'

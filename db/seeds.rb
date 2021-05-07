@@ -107,6 +107,7 @@
 
 #Promotion seed
     promotion1 = Promotion.create!(
+        title: "Manicure",
         discount_flat: "10",
         discount_percent: "10.00",
         promo_code: "112233AA",

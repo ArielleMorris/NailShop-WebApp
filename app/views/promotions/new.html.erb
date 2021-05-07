@@ -1,12 +1,15 @@
 
 <h1>Create Promotion</h1>
 
-<%= bootstrap_form_with model: @promotion, url: promotions_path, method: :post, local: true do |f| %>
+<%= bootstrap_form_with model: @promotions, url: promotions_path, method: :post, local: true do |f| %>
 
-    <%= f.text_field :Title %>
-    <%= f.text_field :Description %>
-    <%= f.text_field :Promo %>
-    <%= f.date_field :Expiration %>
+    <%= f.text_field :title %>
+    <%= f.text_field :discount_flat %>
+    <%= f.text_field :discount_percent %>
+    <%= f.text_field :promo_code %> 
+    <%= f.collection_select :service_id, Service.all, :id, :service_name,{ hide_label: true } %>
     <%= f.submit %>
 
 <% end %>
+
+

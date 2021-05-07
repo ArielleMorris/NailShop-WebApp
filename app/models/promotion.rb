@@ -7,6 +7,7 @@
 #  discount_percent :decimal(, )
 #  promo_code       :string(8)
 #  service_type     :string
+#  title            :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  service_id       :bigint
@@ -29,4 +30,13 @@ class Promotion < ApplicationRecord
       )
     
       validates :promo_code, presence: true
-end
+      validates :discount_flat, presence: true
+      validates :discount_percent, presence: true
+      validates :promo_code, length: { is: 8 }
+      validates :promo_code, format: { with: (/\A[a-zA-Z0-9]+\z/) ,
+      message: "only allows letters and numbers" }
+      
+    
+      
+    end
+  

@@ -1,56 +1,34 @@
 
 <h1>Promotions</h1>
 
-<style>
-.button {
-  color: white;
-  text-align: center;
-  padding: 10px 25px;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-}
-.button1 {background-color: Crimson; border-radius: 2px;}
-.button2 {background-color: Crimson; border-radius: 2px;}
-.button3 {background-color: Crimson; border-radius: 2px;}
-
-</style>
-
-<table class="table table-hover">
+<table class="table table-striped table-hover">
 
   <thead class="thead-dark">
     <tr>
-      <th>Buy 2 Get 1 Free</th>
+      <th>Promotion</th>
+      <th>Promo Code</th>
       <th></th>
     </tr>
   </thead>
 
-</table>
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+      <td><%= promotion.title %></td>
+        <td><%= promotion.promo_code %></td>
+        <td class="text-nowrap">
+          <%= link_to 'show', promotions_path, class: "btn btn-danger" %>
+          <%= link_to 'destroy', promotions_path, method: :delete, class: "btn btn-danger" %>
 
-<button class="button button1" onclick="s=prompt('copy this code','buy2get1huy'); ">Click for Coupon</button>
-
-<table class="table table-hover">
-
-  <thead class="thead-dark">
-    <tr>
-      <th>30% Off Next Visit</th>
-      <th></th>
-    </tr>
-  </thead>
-
-</table>
-
-<button class="button button2" onclick="s=prompt('copy this code','huy30off'); ">Click for Coupon</button>
-
-<table class="table table-hover">
-
-  <thead class="thead-dark">
-    <tr>
-      <th>20% Off Pedicure With Guest</th>
-      <th></th>
-    </tr>
-  </thead>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 
 </table>
 
-<button class="button button3" onclick="s=prompt('copy this code','guest20'); ">Click for Coupon</button>
+<p>
+  <%= link_to "New Promotion", newpromotion_path, class: "btn btn-secondary"%>
+</p>
+
+
