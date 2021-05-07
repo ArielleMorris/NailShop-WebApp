@@ -23,7 +23,7 @@ class PromotionsController < ApplicationController
         @promotions = Promotion.new(params.require(:promotion).permit(:Title, :discount_flat, :discount_percent, :promo_code, :service_id))
         if @promotions.save
           flash[:success] = "New promotion added!"
-          redirect_to promotions_url
+          redirect_to managerhome_url
         else
           flash.now[:error] = "Unable to create promotion"
           render :new
