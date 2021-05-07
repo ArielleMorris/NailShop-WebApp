@@ -33,4 +33,7 @@ class Review < ApplicationRecord
     validates :ratings_desc, presence: true
     validates :service_code,  presence: true
     validates :service_code, length: { is: 8 , message: "only allows numbers and 8 characters"}
+    validates :service_name,  presence: true
+    validates :service_name,  inclusion: {in: %w(manicure pedicure Manicure Pedicure), message: "accepts manicure/pedicure"}
+
 end
