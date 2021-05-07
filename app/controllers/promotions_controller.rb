@@ -20,7 +20,7 @@ class PromotionsController < ApplicationController
 
 
     def create
-        @promotions = Promotion.new(params.require(:promotion).permit(:Title, :discount_flat, :discount_percent, :promo_code, :service_id))
+        @promotions = Promotion.new(params.require(:promotion).permit(:title, :discount_flat, :discount_percent, :promo_code, :service_type, :service_id))
         if @promotions.save
           flash[:success] = "New promotion added!"
           redirect_to managerhome_url
@@ -48,10 +48,16 @@ class PromotionsController < ApplicationController
 
 
   def destroy
-    @promotions = Promotion.find(params[:id])
-    @promotion.destroy
-    flash[:success] = "The promotion was successfully destroyed."
-    redirect_to promotions_url
+    if current_user.manager_role?
+      @promotion = Promotion.find(params[:id])
+      @promotion.destroy
+      flash[:success] = "The promotion was successfully destroyed."
+      redirect_to promotions_url
+
+    else 
+      redirect_to promotions_url, :flash => {:error => "You do not have access to this function."}
+    end
+
   end
 
 end
