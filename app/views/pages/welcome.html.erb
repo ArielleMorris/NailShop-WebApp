@@ -50,7 +50,7 @@
         <%= @current_appointment.technician_name %><br>
         <%= @current_appointment.date_created.strftime("%A %d %B %Y, %I:%M %P CT") %>
       </p>
-      <%= link_to 'Cancel', appointments_path,class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', appointment_path(@current_appointment),method: :delete,data: {confirm: "Are you sure you want to cancel the appointment?"}, class: 'btn btn-primary' %>
       <%= link_to 'Reschedule ', edit_appointment_path(@current_appointment),class: 'btn btn-primary' %>
       <%= link_to 'Check-In', appointments_path,class: 'btn btn-primary' %>
         </div>
