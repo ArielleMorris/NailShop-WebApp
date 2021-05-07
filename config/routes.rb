@@ -23,9 +23,15 @@ Rails.application.routes.draw do
   
 
   get 'show', to: 'pages#show', as: 'show'
-  get 'review', to: 'pages#review', as: 'review'
   post 'create', to: 'pages#create', as: 'create'
   get 'register', to: 'pages#register', as: 'register'
+
+
+
+  post 'review', to: 'reviews#create' 
+  get 'review/new', to: 'reviews#new', as: 'newreview'
+  
+
 
   get 'managerhome', to: 'pages#manage', as: 'managerhome'
   
