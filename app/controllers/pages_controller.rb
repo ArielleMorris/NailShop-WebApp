@@ -18,6 +18,20 @@ class PagesController < ApplicationController
         render :register
     end
 
+    def manage
+        if current_user.nil?
+            redirect_to welcome_url, :flash => { :error => "You do not have access to this page." }
+            
+        elsif current_user.manager_role?
+            @techs = Technician.order(:tech_name)
+            render :managerhome
+
+        else
+            redirect_to welcome_url, :flash => { :error => "You do not have access to this page." }
+
+        end
+    end
+
     def create
         @pages = Pages.register(params.require(:pages).permit(:fname, :lname, :email, :pass, :repass, :pnum))
             if @pages.save

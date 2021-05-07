@@ -16,6 +16,15 @@
     <%= link_to 'Reviews', review_path, class: 'nav-link px-2' %>
     </li>
     </li>
+
+    <%# Navbar code to check if the user is a manager for the Manager page button link %>
+    <% if current_user.nil? %>
+    <% elsif current_user.manager_role? %>
+      <li class="nav-item">
+        <%= link_to 'Management Page', managerhome_path, class: 'nav-link' %>
+      </li>
+    <% else %>
+    <% end %>
   </ul>
 
   <ul class="navbar-nav">
