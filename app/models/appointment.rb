@@ -32,7 +32,7 @@ class Appointment < ApplicationRecord
         class_name: 'Technician',
         foreign_key: 'technician_id',
         inverse_of: :appointment,
-        dependent: :destroy
+       
       )
 
       belongs_to(
@@ -46,7 +46,8 @@ class Appointment < ApplicationRecord
           :review,
           class_name:'Review',
           foreign_key: 'appointment_id',
-          inverse_of: :appointment
+          inverse_of: :appointment,
+          dependent: :destroy
       )
 
       has_one(
