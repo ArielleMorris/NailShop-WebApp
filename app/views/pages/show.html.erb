@@ -1,35 +1,38 @@
-<h1>Admin: </h1>
+<h1 style="font-family:'Courier'">Admin: <%=current_user.first_name%></h1>
 <div style="padding:20px;">
-<h2>Customer Reports</h2>
 
+<h2 style="font-family:'Courier New'">Customer Reports </h2>
 
-<style type="text/css">
- .nobull {
-  list-style-type: none;
- }
-</style>
-<ul class="nobull">
-      <li>Name </li>
+<h4 style="font-family:'Courier New'"><%= @show_customer.first_name %> <%=@show_customer.last_name %></h4>
+        <style type>
+            .nobull{list-style-type: none;}
+        </style>
+        <ul class="nobull">
+            <li>Phone Number: <%= @show_customer.phone_number %> </li>
+            <li>Email Address:  <%= @show_customer.email%> </li>
+            <li>Total Appointments:  <%= @show_customer.appointments.count %> </li>
+        </ul>
+<br>
 
-      <li>Phone Number:</li>
-      <li>Email Address:</li>
-      <li>Total Appointments:</li>
-      <li>Reviews:</li>
-  </ul>
-  
-<div style="padding:20px;">
-<p>
-<h4>Appointments</h4>  
-    <select><option>Month</option>
-    </select>
-</p>
+<div class="col-sm-5">
+    <h5 class="card-header" style="font-family:'Courier'">Appointments </h5>
+    <div class="card-body">
+        <%= @show_appointment.client_firstname%> <%= @show_appointment.client_lastname %><br>
+        <%= @show_appointment.service_name %><br> 
+        <%= @show_appointment.technician_name %><br>
+        <%= @show_appointment.date_created.strftime("%A %d %B %Y, %I:%M %P CT") %>
+    </div>
+</div>
+<br>
 
-<p>
-    <h4>Review Calender</h4>
-        <select><option>Month</option>
-        </select>
-</p>
+<div class="col-sm-5">
+    <h5 class="card-header" style="font-family:'Courier'">Reviews </h5>
+    <div class="card-body">
+    <%= @show_review.rating_num %> <span>☆</span> <br>
+    Service code: <%= @show_review.service_code %> <br>
+    <%= @show_review.ratings_desc %>
+    </div>
+</div>
+<br>
 
-<p>
-    <%= link_to 'View Customer List', customers_path %>
-</p>
+<%= link_to 'View Customer List', customers_path, class: 'btn btn-light btn-sm' %>

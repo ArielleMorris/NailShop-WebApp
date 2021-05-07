@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   delete 'appointments/:id', to: 'appointments#destroy'
   
 
-  get 'show', to: 'pages#show', as: 'show'
+
+  get 'show/:id', to: 'pages#show', as: 'show'
+  get 'review', to: 'pages#review', as: 'review'
+
   post 'create', to: 'pages#create', as: 'create'
   get 'register', to: 'pages#register', as: 'register'
 

@@ -49,4 +49,19 @@ class PagesController < ApplicationController
                 render :register
         end
     end
+
+    def show
+        @show_customer = User.find(params[:id])
+        @show_appointment = @show_customer.appointments.last
+        @show_review = @show_appointment.review
+        if current_user.nil?
+            redirect_to welcome_url, :flash => { :error => "You do not have access to this page." }
+        elsif current_user.manager_role?
+            render :show
+        else
+            redirect_to welcome_url, :flash => { :error => "You do not have access to this page." }
+        end
+    end
+
 end
+
