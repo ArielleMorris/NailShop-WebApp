@@ -3,6 +3,7 @@
 # Table name: appointments
 #
 #  id               :bigint           not null, primary key
+#  check_in         :boolean          default(FALSE)
 #  client_firstname :string
 #  client_lastname  :string
 #  client_mobile    :string
@@ -51,7 +52,7 @@ class Appointment < ApplicationRecord
       )
 
       has_one(
-          :check_in,
+          :checked_in,
           class_name: 'CheckIn',
           foreign_key: 'appointment_id',
           inverse_of: :appointment,
