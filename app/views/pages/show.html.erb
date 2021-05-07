@@ -28,9 +28,9 @@
 <div class="col-sm-5">
     <h5 class="card-header" style="font-family:'Courier'">Reviews </h5>
     <div class="card-body">
-    No reviews to view<br><br>
-
-    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    <%= @show_review.rating_num %> <span>☆</span> <br>
+    Service code: <%= @show_review.service_code %> <br>
+    <%= @show_review.ratings_desc %>
     </div>
 </div>
 <br>
