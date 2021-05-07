@@ -44,7 +44,14 @@ class AppointmentsController < ApplicationController
     redirect_to welcome_url
   end
 
-
-
+  def check_in
+  @appointment = Appointment.find(params[:id])
+   if @appointment.update(check_in: true)
+      flash[:success] = "You have checked in for your appointment!"
+      redirect_to welcome_url
+    else
+      flash.now[:error] = "Could not check in"
+    end
+  end
 
 end

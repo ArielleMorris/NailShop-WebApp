@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   post 'appointments', to: 'appointments#create'
   get 'appointments/:id/edit', to: 'appointments#edit', as: 'edit_appointment'
   patch 'appointments/:id', to: 'appointments#update', as: 'appointment'
+  post 'appointments/:id/checkin', to: 'appointments#check_in', as: 'appointment_checkin'
   delete 'appointments/:id', to: 'appointments#destroy'
+  
 
   get 'show', to: 'pages#show', as: 'show'
   get 'review', to: 'pages#review', as: 'review'

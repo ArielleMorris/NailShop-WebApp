@@ -3,6 +3,7 @@
 # Table name: appointments
 #
 #  id               :bigint           not null, primary key
+#  check_in         :boolean          default(FALSE)
 #  client_firstname :string
 #  client_lastname  :string
 #  client_mobile    :string
