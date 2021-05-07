@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post 'promotions', to: 'promotions#create'
   get 'promotions/:id/edit', to: 'promotions#edit', as: 'editprom'
   patch 'promotions/:id', to: 'promotions#update'
-  delete 'promotions/:id', to: 'promotions#destroy'
+  delete 'promotions/:id', to: 'promotions#destroy', as: 'promotion'
 
   get 'appointments', to: 'appointments#new', as: 'appointments'
   post 'appointments', to: 'appointments#create'

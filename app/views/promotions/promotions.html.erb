@@ -7,7 +7,7 @@
     <tr>
       <th>Promotion</th>
       <th>Promo Code</th>
-      <th>Type</th>
+      <th>Flat Discount</th>
       <th></th>
     </tr>
   </thead>
@@ -17,20 +17,24 @@
       <tr>
       <td><%= promotion.title %></td>
         <td><%= promotion.promo_code %></td>
-        <td><%= promotion.service_type %></td>
+        <td><%= promotion.discount_flat %></td>
+        <% if current_user.manager_role?%>
         <td class="text-nowrap">
-          <%= link_to 'show', promotions_path, class: "btn btn-danger" %>
-          <%= link_to 'destroy', promotions_path, method: :delete, class: "btn btn-danger" %>
-
+          <%= link_to 'destroy', promotion_path(promotion), method: :delete, class: "btn btn-danger" %>
         </td>
+        <% else %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 
 </table>
 
+<% if current_user.manager_role?%>
 <p>
   <%= link_to "New Promotion", newpromotion_path, class: "btn btn-secondary"%>
 </p>
+<% else %>
+<% end %>
 
 
