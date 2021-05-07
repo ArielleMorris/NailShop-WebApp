@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_014045) do
   end
 
   create_table "promotions", force: :cascade do |t|
+    t.string "title"
     t.string "promo_code", limit: 8
     t.integer "discount_flat"
     t.decimal "discount_percent"

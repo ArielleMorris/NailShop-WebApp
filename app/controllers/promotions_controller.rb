@@ -1,5 +1,7 @@
 class PromotionsController < ApplicationController
 
+  before_action :authenticate_user!
+
     def promotions
         @promotions = Promotion.all
         render:promotions
@@ -7,14 +9,21 @@ class PromotionsController < ApplicationController
 
     def new
         @promotions = Promotion.new
-        render :new
+        if current_user.nil?
+          redirect_to promotions_url, :flash => {:error => "You do not have access to this page"}
+        elsif current_user.manager_role?
+          render :new
+        else 
+          redirect_to promotions_url, :flash => {:error => "You do not have access to this page"}
+        end
     end
 
+
     def create
-        @promotions = Promotion.new(params.require(:promotion).permit(:title, :description, :promo, :expiration))
+        @promotions = Promotion.new(params.require(:promotion).permit(:Title, :discount_flat, :discount_percent, :promo_code, :service_id))
         if @promotions.save
           flash[:success] = "New promotion added!"
-          redirect_to promotions_url
+          redirect_to managerhome_url
         else
           flash.now[:error] = "Unable to create promotion"
           render :new
@@ -36,6 +45,14 @@ class PromotionsController < ApplicationController
           render :edit
         end
       end
+
+
+  def destroy
+    @promotions = Promotion.find(params[:id])
+    @promotion.destroy
+    flash[:success] = "The promotion was successfully destroyed."
+    redirect_to promotions_url
+  end
 
 end
 
