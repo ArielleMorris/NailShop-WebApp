@@ -1,0 +1,44 @@
+<h1>Leave A Review</h1>
+
+<%= bootstrap_form_with model: @review, url: review_path, method: :post, local: true do |f| %>
+
+    <%= f.text_field :rating_num %>
+    <%= f.text_field :ratings_desc %>
+    <%= f.text_field :service_code %>
+    <%= f.text_field :service_name %>
+    <%= f.submit %>
+
+
+
+<% end %>
+
+
+<h1>Reviews</h1>
+
+<table class="table table-striped table-hover">
+
+  <thead class="thead-dark">
+    <tr>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Service Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @reviews.each do |review| %>
+      <tr>
+      <td><%= review.rating_num %></td>
+        <td><%= review.ratings_desc %></td>
+        <td><%= review.service_name %></td>
+        <td class="text-nowrap">
+
+        </td>
+      </tr>
+  <%end%>
+  </tbody>
+
+</table>
+
+

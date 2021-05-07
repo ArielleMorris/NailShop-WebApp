@@ -25,8 +25,12 @@ class Review < ApplicationRecord
         :appointment,
         class_name: 'Appointment',
         foreign_key: 'appointment_id',
-        inverse_of: :review
+        inverse_of: :review,
+        optional: true
     )
 
     validates :rating_num, inclusion: { in: 1..5}
+    validates :ratings_desc, presence: true
+    validates :service_code,  presence: true
+    validates :service_code, length: { is: 8 , message: "only allows numbers and 8 characters"}
 end

@@ -1,19 +1,25 @@
 class ReviewsController < ApplicationController
   
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:new]
 
-  def review
-    render:review
+
+  def new
+    @review = Review.new
+    @reviews = Review.all
+    render :new
   end
 
     def create
-        @review = review.build(params.require(:review).permit(:rating_num, :ratings_desc, :service_name, :service_code))
+        @review = Review.new(params.require(:review).permit(:rating_num, :ratings_desc, :service_code, :service_name))
+        @reviews = Review.all
         if @review.save
           flash[:success] = "New review created."
-          redirect_to welcome_url
+          redirect_to newreview_url
         else
           flash.now[:error] = "Review could not be created."
+          render :new
         end
       end
+
 
 end
